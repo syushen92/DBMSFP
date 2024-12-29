@@ -14,6 +14,9 @@ const HomePage: React.FC = () => {
         <button className="btn btn-warning" onClick={() => navigate('/accounting')}>
           分帳功能
         </button>
+        <button className="btn btn-primary" onClick={() => navigate('/score')}>
+          個人積分
+        </button>
       </div>
     </div>
   );
