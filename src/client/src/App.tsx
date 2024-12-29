@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import FriendListPage from './pages/Friend/FriendListPage';
 import AccountingPage from './pages/Accounting/AccountingPage';
 import './App.css';
+import ScorePage from './pages/ScorePage';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/friendlist" element={<FriendListPage />} />
         <Route path="/accounting" element={<AccountingPage />} />
+        <Route path="/score" element={<ScorePage />} />
       </Routes>
     </BrowserRouter>
   );
