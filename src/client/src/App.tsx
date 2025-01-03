@@ -6,6 +6,7 @@ import SignUpPage from './pages/Login/SignUpPage';
 import HomePage from './pages/HomePage';
 import FriendListPage from './pages/Friend/FriendListPage';
 import AccountingPage from './pages/Accounting/AccountingPage';
+import SplitPage from './pages/Accounting/SplitPage';
 import './App.css';
 import ScorePage from './pages/ScorePage';
 
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/friendlist" element={<FriendListPage />} />
         <Route path="/accounting" element={<AccountingPage />} />
+		<Route path="/split" element={<SplitPage />} />
         <Route path="/score" element={<ScorePage />} />
       </Routes>
     </BrowserRouter>
