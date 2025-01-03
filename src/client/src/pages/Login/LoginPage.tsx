@@ -9,6 +9,12 @@ const LoginPage: React.FC = () => {
   const [error, setError] = useState<string>('');/* 存取錯誤訊息 */
   const [currentImage, setCurrentImage] = useState('/assets/hide.png');
 
+  // 模擬用戶數據
+  const mockUsers = [
+    { username: 'testuser', password: 'testpassword' },
+    { username: 'admin', password: 'adminpassword' },
+  ];
+
   /* 驗證有效輸入 */
   const validateInputs = (): string => {
     if (!username) {
@@ -17,11 +23,12 @@ const LoginPage: React.FC = () => {
     if (!password) {
       return 'Enter a password';
     }
-    if (password.length < 8) {
+    /*if (password.length < 8) {
       return 'Use 8 characters or more for your password';
-    }
+    }*/
     return '';
   };
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,8 +38,33 @@ const LoginPage: React.FC = () => {
       return;
     }
     setError(''); /* 清除錯誤訊息 */
-    console.log('登入資訊:', { username, password });
+
+    // 從 localStorage 中讀取用戶列表
+  const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
+
+  // 驗證用戶是否存在
+  const userExists = existingUsers.find(
+    (user: { username: string; password: string }) =>
+      user.username === username && user.password === password
+  );
+
+  if (userExists) {
+    navigate('/homepage'); // 跳轉到 HomePage
+  } else {
+    setError('Invalid username or password'); // 顯示錯誤訊息
+  }
+
+    /*console.log('登入資訊:', { username, password });
+
+    if (username === 'test' && password === 'password') {
+      navigate('/homepage'); // 跳轉到 HomePage
+    } else {
+      setError('Invalid username or password');
+    }*/
+
   };
+
+  
 
   /* 獲取導航函數 */
   const navigate = useNavigate(); 
