@@ -64,7 +64,7 @@ const SignUpPage: React.FC = () => {
       prevImage === "/assets/hide.png"
         ? "/assets/witness.png"
         : "/assets/hide.png"
-    );
+    );            
   };
 
   return (
