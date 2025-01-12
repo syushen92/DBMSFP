@@ -23,26 +23,30 @@ const SignUpPage: React.FC = () => {
     return "";
   };
 
+  // 提交表單
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     const validationError = validateInputs();
     if (validationError) {
-      setError(validationError); /* 設置錯誤訊息 */
+      setError(validationError);
       return;
     }
-    setError(""); /* 清除錯誤訊息 */
+    setError(""); // 清除錯誤訊息
 
-    // 從 localStorage 取出已存在的用戶列表
+    // 組合完整 Email 地址
+    const fullEmail = `${email}@${domain}`;
+
+    // 從 localStorage 獲取用戶列表
     const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
-    const newUser = { username, password }; // 新註冊的用戶
+    const newUser = { username, email: fullEmail, password };
     const updatedUsers = [...existingUsers, newUser];
 
-    // 將更新後的用戶列表存回 localStorage
+    // 保存用戶到 localStorage
     localStorage.setItem("users", JSON.stringify(updatedUsers));
 
-    // 提示註冊成功並跳轉到登入頁
     alert("Registration successful! You can now log in.");
-    navigate("/login");
+    navigate("/login"); // 跳轉到登錄頁面
   };
 
   /* 獲取導航函數 */
@@ -50,12 +54,12 @@ const SignUpPage: React.FC = () => {
 
   /* 改變密碼顯示狀態 */
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [imageVisible, setImageVisible] = useState(false);
+  //const [imageVisible, setImageVisible] = useState(false);
 
   /* 切換密碼顯示或隱藏 */
   const handleShowPassword = () => {
     setPasswordVisible(true);
-    setImageVisible(true);
+    //setImageVisible(true);
     setTimeout(() => {
       setPasswordVisible(false);
       setCurrentImage("/assets/hide.png");

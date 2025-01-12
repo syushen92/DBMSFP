@@ -1,3 +1,6 @@
 flask
+Flask-SQLAlchemy
+Flask-Bcrypt
+flask_cors
 psycopg2-binary
 python-dotenv

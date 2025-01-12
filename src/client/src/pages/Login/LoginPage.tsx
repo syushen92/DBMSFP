@@ -9,11 +9,6 @@ const LoginPage: React.FC = () => {
   const [error, setError] = useState<string>('');/* 存取錯誤訊息 */
   const [currentImage, setCurrentImage] = useState('/assets/hide.png');
 
-  // 模擬用戶數據
-  const mockUsers = [
-    { username: 'testuser', password: 'testpassword' },
-    { username: 'admin', password: 'adminpassword' },
-  ];
 
   /* 驗證有效輸入 */
   const validateInputs = (): string => {
@@ -71,12 +66,14 @@ const LoginPage: React.FC = () => {
 
   /* 改變密碼圖示顯示狀態 */
   const [passwordVisible, setPasswordVisible]=useState(false);
-  const [imageVisible, setImageVisible]=useState(false);
+  //const [imageVisible, setImageVisible]=useState(false);
+
+  //console.log(imageVisible);
 
   /* 切換密碼顯示或隱藏 */
   const handleShowPassword = () => {
     setPasswordVisible(true);
-    setImageVisible(true)
+    //setImageVisible(true)
     setTimeout(() => {
       setPasswordVisible(false);
       setCurrentImage('/assets/hide.png');

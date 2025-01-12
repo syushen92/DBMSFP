@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchField, setSearchField] = useState("name");
+  //const [searchField, setSearchField] = useState("name");
 
   const months = [
     "1月",

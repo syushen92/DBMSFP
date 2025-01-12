@@ -1,11 +1,11 @@
 services:
   client:
-    container_name: client
+    container_name: client_new
     build:
       context: ./src/client
       dockerfile: dockerfile
     ports:
-      - 3000:3000
+      - 3001:3000
     env_file:
       - ./src/client/.env
     depends_on:
@@ -65,11 +65,11 @@ services:
 
   # pgAdmin Service
   pgadmin:
-    container_name: pgadmin
+    container_name: pgadmin_new
     image: dpage/pgadmin4:8
     restart: always
     ports:
-      - "8080:80"
+      - "8081:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
